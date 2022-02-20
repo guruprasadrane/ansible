@@ -12,9 +12,10 @@
         - build-essential
         - python-pip
         - python-mysqldb
+        - curl
 
     - name: Install database
-      apt: name="{{ item }}" state=present
+      apt: name="{{ item }}" state=installed
       with_items:
         - mysql-server
         - mysql-client
@@ -35,6 +36,9 @@
         priv: '*.*:ALL'
         state: present 
         host: '%'
+
+    - name: pip upgrade
+      shell: 'curl -O https://bootstrap.pypa.io/pip/2.7/get-pip.py && python get-pip.py && python -m pip install --upgrade "pip < 21.0" '
 
     - name: Install flask 
       pip:
