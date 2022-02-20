@@ -11,6 +11,7 @@
         - python-dev
         - build-essential
         - python-pip
+        - pymysql
 
     - name: Install database
       apt: name="{{ item }}" state=present
