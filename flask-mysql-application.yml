@@ -24,11 +24,6 @@
         state: started
         enabled: yes
 
-    - name: Install mysql-python package
-      apt:
-        name: mysql-python
-        state: present
-
     - name: Create application database
       mysql_db: name=employee_db state=present
 
